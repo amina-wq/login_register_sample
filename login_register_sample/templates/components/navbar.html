@@ -1,0 +1,19 @@
+<nav>
+    <ul>
+        <li>
+            <a href="{% url 'home' %}">Home Page</a>
+        </li>
+        {% if request.user.is_authenticated %}
+            <li>
+                <a href="{% url 'logout' %}">Logout ({{ request.user.username }})</a>
+            </li>
+        {% else %}
+            <li>
+                <a href="{% url 'login' %}">Sign in</a>
+            </li>
+            <li>
+                <a href="{% url 'register' %}">Sign up</a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
